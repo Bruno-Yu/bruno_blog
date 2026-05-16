@@ -1,41 +1,32 @@
-:root {
-  --ifm-color-primary: #2f6b57;
-  --ifm-color-primary-dark: #285b4a;
-  --ifm-color-primary-darker: #255544;
-  --ifm-color-primary-darkest: #1d4437;
-  --ifm-color-primary-light: #397965;
-  --ifm-color-primary-lighter: #40816c;
-  --ifm-color-primary-lightest: #579381;
-  --ifm-background-color: #f7f3ec;
-  --ifm-background-surface-color: #fbf8f2;
-  --ifm-font-color-base: #1d2422;
-  --ifm-heading-color: #15201d;
-  --ifm-navbar-background-color: rgba(247, 243, 236, 0.92);
-  --ifm-footer-background-color: #18211f;
-  --ifm-link-color: #2f6b57;
-  --ifm-code-font-size: 92%;
-  --ifm-font-family-base: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    sans-serif;
-  --ifm-heading-font-family: ui-serif, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua',
-    Georgia, serif;
-  --ifm-heading-font-weight: 700;
-  --ifm-navbar-shadow: none;
-  --ifm-toc-border-color: rgba(29, 36, 34, 0.12);
-}
+/* ==============================================
+   PHOSPHOR THEME — custom.css
+   Bruno's Notes · Docusaurus 3.10.1
+   ============================================== */
 
-[data-theme='dark'] {
-  --ifm-background-color: #121716;
-  --ifm-background-surface-color: #171d1b;
-  --ifm-font-color-base: #e9e2d8;
-  --ifm-heading-color: #f5efe6;
-  --ifm-navbar-background-color: rgba(18, 23, 22, 0.92);
-}
+/* ── Font faces ──────────────────────────────── */
 
 @font-face {
   font-family: 'Manrope';
   src: url('/fonts/Manrope-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -43,60 +34,480 @@
   src: url('/fonts/Manrope-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('/fonts/IBMPlexMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('/fonts/IBMPlexMono-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Phase 1: Design Tokens (Light) ─────────── */
+
+:root {
+  /* Phosphor accent — warm teal */
+  --ifm-color-primary:          #076e65;
+  --ifm-color-primary-dark:     #065f57;
+  --ifm-color-primary-darker:   #065850;
+  --ifm-color-primary-darkest:  #044941;
+  --ifm-color-primary-light:    #087d73;
+  --ifm-color-primary-lighter:  #09867b;
+  --ifm-color-primary-lightest: #0b9e91;
+
+  /* Backgrounds */
+  --ifm-background-color:         #f3efe8;
+  --ifm-background-surface-color: #e9e2d8;
+
+  /* Text */
+  --ifm-font-color-base: #111418;
+  --ifm-heading-color:   #111418;
+
+  /* Navbar */
+  --ifm-navbar-background-color: rgba(243, 239, 232, 0.93);
+  --ifm-navbar-shadow:           none;
+
+  /* Footer */
+  --ifm-footer-background-color: #18211f;
+
+  /* Links */
+  --ifm-link-color: #076e65;
+
+  /* Code */
+  --ifm-code-font-size:   92%;
+  --ifm-code-background:  rgba(7, 110, 101, 0.08);
+
+  /* Borders / TOC */
+  --ifm-toc-border-color: rgba(17, 20, 24, 0.13);
+
+  /* Sidebar active bg */
+  --ifm-menu-color-background-active: rgba(7, 110, 101, 0.10);
+  --ifm-menu-color-background-hover:  rgba(7, 110, 101, 0.06);
+
+  /* Fonts */
+  --ifm-font-family-base:       'Manrope', system-ui, -apple-system, BlinkMacSystemFont,
+                                'Segoe UI', sans-serif;
+  --ifm-heading-font-family:    'Manrope', system-ui, -apple-system, BlinkMacSystemFont,
+                                'Segoe UI', sans-serif;
+  --ifm-heading-font-weight:    700;
+  --ifm-font-family-monospace:  'IBM Plex Mono', 'Fira Code', 'Fira Mono', monospace;
+
+  /* Phosphor custom vars */
+  --ph-font-mono:    'IBM Plex Mono', monospace;
+  --ph-sidebar-bg:   #ddd6ca;
+  --ph-muted:        #4e5664;
+  --ph-accent:       #076e65;
+  --ph-accent-bg:    rgba(7, 110, 101, 0.10);
+  --ph-border:       rgba(17, 20, 24, 0.13);
+  --ph-code-header:  #edf0f3;   /* header strip above code block, light mode */
+
+  /* Algolia DocSearch — light mode */
+  --docsearch-primary-color:          #076e65;
+  --docsearch-text-color:             #111418;
+  --docsearch-muted-color:            #4e5664;
+  --docsearch-container-background:   rgba(80, 90, 100, 0.72);
+  --docsearch-modal-background:       #f3efe8;
+  --docsearch-modal-shadow:           0 24px 60px rgba(0, 0, 0, 0.18);
+  --docsearch-searchbox-background:   #e9e2d8;
+  --docsearch-searchbox-focus-background: #ddd6ca;
+  --docsearch-hit-color:              #111418;
+  --docsearch-hit-active-color:       #111418;
+  --docsearch-hit-background:         #e9e2d8;
+  --docsearch-hit-shadow:             none;
+  --docsearch-footer-background:      #f3efe8;
+  --docsearch-footer-shadow:          0 -1px 0 rgba(17, 20, 24, 0.13);
+  --docsearch-key-gradient:           linear-gradient(-26.5deg, #ddd6ca 0%, #e9e2d8 100%);
+  --docsearch-key-shadow:             0 2px 0 #c8c0b5;
+  --docsearch-highlight-color:        #076e65;
+}
+
+/* ── Phase 1: Design Tokens (Dark) ──────────── */
+
+[data-theme='dark'] {
+  /* Phosphor accent — bright teal */
+  --ifm-color-primary:          #2dd4bf;
+  --ifm-color-primary-dark:     #1abba8;
+  --ifm-color-primary-darker:   #18b09e;
+  --ifm-color-primary-darkest:  #139182;
+  --ifm-color-primary-light:    #40dcc7;
+  --ifm-color-primary-lighter:  #4edecb;
+  --ifm-color-primary-lightest: #71e4d4;
+
+  --ifm-background-color:         #0b0e12;
+  --ifm-background-surface-color: #10141a;
+  --ifm-font-color-base:          #ddd6cc;
+  --ifm-heading-color:            #ddd6cc;
+  --ifm-navbar-background-color:  rgba(11, 14, 18, 0.93);
+  --ifm-toc-border-color:         rgba(221, 214, 204, 0.07);
+  --ifm-code-background:          rgba(45, 212, 191, 0.08);
+  --ifm-menu-color-background-active: rgba(45, 212, 191, 0.10);
+  --ifm-menu-color-background-hover:  rgba(45, 212, 191, 0.06);
+
+  --ph-sidebar-bg:   #0d1117;
+  --ph-muted:        #8a9099;
+  --ph-accent:       #2dd4bf;
+  --ph-accent-bg:    rgba(45, 212, 191, 0.10);
+  --ph-border:       rgba(221, 214, 204, 0.07);
+  --ph-code-header:  #1e2330;   /* header strip above code block, dark mode */
+
+  /* Algolia DocSearch — dark mode */
+  --docsearch-primary-color:          #2dd4bf;
+  --docsearch-text-color:             #ddd6cc;
+  --docsearch-muted-color:            #8a9099;
+  --docsearch-container-background:   rgba(0, 0, 0, 0.65);
+  --docsearch-modal-background:       #0b0e12;
+  --docsearch-modal-shadow:           0 24px 80px rgba(0, 0, 0, 0.70);
+  --docsearch-searchbox-background:   #10141a;
+  --docsearch-searchbox-focus-background: #0d1117;
+  --docsearch-hit-color:              #ddd6cc;
+  --docsearch-hit-active-color:       #ddd6cc;
+  --docsearch-hit-background:         #10141a;
+  --docsearch-footer-background:      #0b0e12;
+  --docsearch-footer-shadow:          0 -1px 0 rgba(221, 214, 204, 0.07);
+  --docsearch-key-gradient:           linear-gradient(-26.5deg, #0d1117 0%, #10141a 100%);
+  --docsearch-key-shadow:             0 2px 0 #000;
+  --docsearch-highlight-color:        #2dd4bf;
+}
+
+/* ── Phase 2: Navbar ─────────────────────────── */
+
 .navbar {
-  border-bottom: 1px solid rgba(29, 36, 34, 0.1);
-  backdrop-filter: blur(10px);
+  border-top: 2.5px solid var(--ifm-color-primary);
+  border-bottom: 1px solid var(--ph-border);
+  backdrop-filter: blur(14px);
 }
 
 .navbar__title {
-  letter-spacing: -0.02em;
+  font-family: var(--ph-font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
+/* Search button hover */
+.navbar__search-button,
+button.DocSearch.DocSearch-Button {
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+button.DocSearch.DocSearch-Button:hover {
+  background: var(--ph-accent-bg);
+  border-color: var(--ph-accent);
+  color: var(--ph-accent);
+}
+
+/* Navbar links */
+.navbar__link {
+  font-size: 12px;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.navbar__link--active {
+  color: var(--ph-accent);
+  border-bottom: 2px solid var(--ph-accent);
+  padding-bottom: 2px;
+}
+
+/* ── Phase 3: Sidebar ────────────────────────── */
+
+/* Sidebar container bg */
 .theme-doc-sidebar-container {
-  border-right: 1px solid rgba(29, 36, 34, 0.1) !important;
+  background-color: var(--ph-sidebar-bg) !important;
+  border-right: 1px solid var(--ph-border) !important;
 }
 
 .menu {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
+  background-color: var(--ph-sidebar-bg);
+  padding: 10px 0;
 }
 
-.menu__link {
-  border-radius: 0.5rem;
+/* ── Category headers (folder labels) ── */
+
+.menu__link--sublist {
+  font-family: var(--ph-font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ph-muted) !important;
+  padding: 8px 12px 3px 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-left: 2px solid transparent;
+  border-radius: 0;
+  background: transparent !important;
 }
 
+/* Category dot indicator */
+.menu__link--sublist::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  min-width: 5px;
+  border-radius: 50%;
+  background: var(--ph-accent);
+  opacity: 0.6;
+  display: inline-block;
+}
+
+/* Smooth caret rotation */
+.menu__link--sublist-caret::after {
+  transition: transform 0.2s ease !important;
+}
+
+/* ── File item links (leaf docs) ── */
+
+.menu__link:not(.menu__link--sublist) {
+  border-left: 2px solid transparent;
+  border-radius: 0 4px 4px 0;
+  padding: 4px 10px 4px 18px;
+  font-size: 12px;
+  color: var(--ifm-font-color-base);
+  transition: color 0.12s ease, background 0.12s ease, border-left-color 0.12s ease;
+}
+
+.menu__link:not(.menu__link--sublist):hover {
+  border-left-color: var(--ph-accent);
+  background: var(--ph-accent-bg) !important;
+  color: var(--ph-accent) !important;
+}
+
+/* Active file item */
 .menu__link--active:not(.menu__link--sublist) {
-  background: rgba(47, 107, 87, 0.12);
+  border-left: 2px solid var(--ph-accent);
+  background: var(--ph-accent-bg) !important;
+  color: var(--ph-accent) !important;
+  font-weight: 600;
 }
+
+/* Active dot indicator */
+.menu__link--active:not(.menu__link--sublist)::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  min-width: 4px;
+  border-radius: 50%;
+  background: var(--ph-accent);
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+/* ── Collapsible container ── */
+
+.menu__list-item-collapsible {
+  border-radius: 0;
+}
+
+.menu__list-item-collapsible:hover,
+.menu__list-item-collapsible:hover > .menu__link {
+  background: transparent !important;
+}
+
+/* ── Nested connecting line ── */
+
+.menu__list .menu__list {
+  border-left: 1px solid var(--ph-border);
+  margin-left: 14px;
+  padding-left: 2px;
+}
+
+/* ── Phase 4: Table of Contents ─────────────── */
+
+.table-of-contents {
+  font-size: 0.875rem;
+}
+
+.table-of-contents__link {
+  color: var(--ph-muted);
+  transition: color 0.12s;
+}
+
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: var(--ph-accent) !important;
+}
+
+.table-of-contents__link--active {
+  font-weight: 600;
+}
+
+/* ── Phase 5: Code Blocks ───────────────────── */
+
+code {
+  font-family: var(--ph-font-mono);
+  font-size: 0.875em;
+  border-radius: 3px;
+}
+
+.prism-code,
+pre {
+  font-family: var(--ph-font-mono) !important;
+  font-size: 10.5px !important;
+  line-height: 1.65 !important;
+}
+
+.theme-code-block {
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+/*
+  macOS traffic-light dots header — appears on every code block
+  that does NOT have an explicit title (which is all of them in this
+  repo, since no code fences use the `title="..."` option).
+*/
+.theme-code-block::before {
+  content: '';
+  display: block;
+  height: 34px;
+  background-color: var(--ph-code-header);
+  background-image:
+    radial-gradient(circle 4.5px at 14px 17px, #ff5f57 100%, transparent 0),
+    radial-gradient(circle 4.5px at 28px 17px, #febc2e 100%, transparent 0),
+    radial-gradient(circle 4.5px at 42px 17px, #28c840 100%, transparent 0);
+  background-repeat: no-repeat;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  opacity: 0.85;
+}
+
+[data-theme='dark'] .theme-code-block::before {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+  opacity: 1;
+}
+
+/* Code block title bar (when used) — dots shift into title bar */
+[class*='codeBlockTitle'] {
+  position: relative;
+  padding-left: 52px !important;
+  font-family: var(--ph-font-mono) !important;
+  font-size: 10.5px !important;
+}
+
+[class*='codeBlockTitle']::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ff5f57;
+  box-shadow: 14px 0 0 #febc2e, 28px 0 0 #28c840;
+  opacity: 0.75;
+}
+
+/* When title is present, hide the synthetic ::before header */
+.theme-code-block:has([class*='codeBlockTitle'])::before {
+  display: none;
+}
+
+/* ── Phase 6: Algolia DocSearch mark highlight ─ */
+
+.DocSearch-Hit mark,
+mark {
+  background: var(--ph-accent-bg);
+  color: var(--ph-accent);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+/* ── Phase 7: Page state — pulse animation ───── */
+
+@keyframes ph-pulse {
+  0%, 100% { opacity: 0.55; }
+  50%       { opacity: 1;    }
+}
+
+.ph-pulse {
+  animation: ph-pulse 1.6s ease-in-out infinite;
+}
+
+/* ── Phase 8: Reduced motion ─────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ── Content typography ──────────────────────── */
 
 .markdown h1 {
-  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
   letter-spacing: -0.04em;
 }
 
 .markdown h2 {
   margin-top: 2.2rem;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.markdown h2::after {
+  content: '';
+  display: block;
+  margin-top: 6px;
+  height: 1px;
+  background: var(--ph-border);
 }
 
 .markdown > p:first-of-type {
-  font-size: 1.08rem;
-  color: rgba(29, 36, 34, 0.78);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--ifm-font-color-base);
+  opacity: 0.8;
 }
 
 .theme-doc-markdown {
   max-width: 820px;
 }
 
-.table-of-contents {
-  font-size: 0.92rem;
+/* Inline code */
+.markdown code:not([class]) {
+  background: var(--ph-accent-bg);
+  color: var(--ph-accent);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 0.875em;
 }
 
+/* Blockquote / callout */
+.markdown blockquote {
+  border-left: 3px solid var(--ph-accent);
+  background: var(--ph-accent-bg);
+  padding: 9px 13px;
+  border-radius: 6px;
+  color: var(--ifm-font-color-base);
+  opacity: 0.88;
+  font-size: 0.9rem;
+}
+
+/* Tags / badges */
+.badge {
+  font-family: var(--ph-font-mono);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* Footer */
 .footer {
   margin-top: 3rem;
-}
-
-.codeBlockContainer_Ckt0,
-pre {
-  border: 1px solid rgba(29, 36, 34, 0.1);
 }
