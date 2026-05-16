@@ -34,19 +34,6 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-  plugins: [
-    [
-      require.resolve('@easyops-cn/docusaurus-search-local'),
-      {
-        hashed: true,
-        language: ['en', 'zh'],
-        indexDocs: true,
-        indexBlog: false,
-        docsRouteBasePath: '/',
-        useAllContextsWithNoSearchContext: true,
-      },
-    ],
-  ],
   themeConfig: {
     navbar: {
       title: "Bruno's Notes",
@@ -91,6 +78,11 @@ const config: Config = {
     prism: {
       theme: require('prism-react-renderer').themes.github,
       darkTheme: require('prism-react-renderer').themes.dracula,
+    },
+    algolia: {
+      appId: '10CFVHKCV2',
+      apiKey: '38a1b92a4ab972a9bac39c5d2f12febd',
+      indexName: 'bruno blog',
     },
   } satisfies Preset.ThemeConfig,
 };
