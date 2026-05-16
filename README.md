@@ -1,8 +1,8 @@
 # Bruno's Notes
 
-個人公開技術筆記，以 Docusaurus 3 建置，部署於 Cloudflare Pages。
+個人公開技術筆記，以 Docusaurus 3 建置。
 
-**Live site**: [blog.jackhellowin.win](https://blog.jackhellowin.win)
+**Live site**: GitHub Pages（待部署）
 
 ---
 
@@ -12,7 +12,7 @@
 |---|---|
 | 框架 | [Docusaurus 3](https://docusaurus.io/) |
 | 搜尋 | `@easyops-cn/docusaurus-search-local`（本地索引，build 後生效）|
-| 部署 | Cloudflare Pages |
+| 部署 | GitHub Pages |
 | 筆記來源 | Obsidian vault（私有） |
 
 ---
@@ -117,28 +117,11 @@ git commit -m "docs: add <文章名稱>"
 git push
 ```
 
-Push 後 Cloudflare Pages 會自動觸發 preview deployment，審核後 merge 到 main 上線。
+Push 後 GitHub Actions 會重新建置並部署 GitHub Pages。
 
 ---
 
-## 分類 → 路徑對照表
-
-| Sidebar 分類 | `docs/` 子目錄 |
-|---|---|
-| Frontend > JavaScript | `frontend/javascript/` |
-| Frontend > TypeScript | `frontend/typescript/` |
-| Frontend > Vue / Nuxt | `frontend/vue/` |
-| Frontend > CSS / Layout | `frontend/css/` |
-| Frontend > Libraries | `frontend/libraries/` |
-| Frontend > Frameworks | `frontend/frameworks/` |
-| Frontend > Web APIs | `frontend/web-apis/` |
-| Tooling | `tooling/` |
-| Testing & Performance | `testing-performance/` |
-| Web Platform | `web-platform/` |
-| Backend & API | `backend-api/` |
-| DevOps | `devops/` |
-| .NET / C# | `dotnet/` |
-| Analytics | `analytics/` |
+更多內容規範與分類對照請見 `CONTENT_WORKFLOW.md`。
 
 ---
 
@@ -154,9 +137,7 @@ Push 後 Cloudflare Pages 會自動觸發 preview deployment，審核後 merge �
 
 ## Deployment
 
-詳見 `DEPLOYMENT.md`。
-
-- Platform: Cloudflare Pages
+- Platform: GitHub Pages
+- Workflow: `.github/workflows/deploy.yml`
 - Build command: `npm run build`
 - Output dir: `build`
-- Production domain: `blog.jackhellowin.win`

@@ -22,3 +22,27 @@ publish: true
 - `docs/` contains all public technical notes.
 - Drafts, private notes, company material, and mixed-purpose Notion pages are not valid publication inputs.
 - Future automation may sync Obsidian notes, but only notes explicitly marked `publish: true`.
+
+
+## Category to path map
+
+Use the existing path conventions below when adding new public notes:
+
+| Sidebar category | `docs/` path |
+| --- | --- |
+| Frontend > JavaScript | `frontend/javascript/` |
+| Frontend > TypeScript | `frontend/typescript/` |
+| Frontend > Vue / Nuxt | `frontend/vue/` |
+| Frontend > CSS / Layout | `frontend/css/` |
+| Frontend > Libraries | `frontend/libraries/` |
+| Frontend > Frameworks | `frontend/frameworks/` |
+| Frontend > Web APIs | `frontend/web-apis/` |
+| Tooling | `tooling/` |
+| Testing & Performance | `testing-performance/` |
+| Web Platform | `web-platform/` |
+| Backend & API | `backend-api/` |
+| DevOps | `devops/` |
+| .NET / C# | `dotnet/` |
+| Analytics | `analytics/` |
+
+When adding a new top-level category, create the directory, add the sidebar category, and update this table in the same change.

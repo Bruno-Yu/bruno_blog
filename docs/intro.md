@@ -13,15 +13,10 @@ publish: true
 這裡收錄的是我希望未來自己也能快速回查的內容。  
 我會把它當成公開版知識庫來維護：比部落格更容易檢索，也比零散筆記更適合持續修訂。
 
-## 目前主題
+## 這裡會放什麼
 
-- **Frontend**：JavaScript、TypeScript、Vue / Nuxt、CSS、前端函式庫
-- **Tooling**：套件管理、Corepack、HackMD
-- **Testing & Performance**：Jest、JMeter
-- **Web Platform**：localStorage 等瀏覽器能力
-- **Backend & API**：JSON Server
-- **DevOps**：Linux、SSH
-- **Analytics**：Matomo
+這裡會持續收錄我整理過、願意公開維護的技術筆記。
+內容會隨著學習與工作經驗逐步擴充，因此導覽結構也會持續調整。
 
 ## 發布原則
 
