@@ -68,7 +68,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Tooling',
       collapsed: false,
-      items: ['tooling/package-managers', 'tooling/corepack', 'tooling/hackmd', 'tooling/bash-bom-crlf'],
+      items: ['tooling/package-managers', 'tooling/corepack', 'tooling/hackmd', 'tooling/bash-bom-crlf', 'tooling/ghostty', 'tooling/cron'],
     },
     {
       type: 'category',
@@ -95,6 +95,7 @@ const sidebars: SidebarsConfig = {
         'backend-api/messaging-systems',
         'backend-api/database-selection',
         'backend-api/db-migrations',
+        'backend-api/jwt',
       ],
     },
     {
@@ -104,6 +105,9 @@ const sidebars: SidebarsConfig = {
       items: [
         'devops/linux-commands',
         'devops/ssh',
+        'devops/docker',
+        'devops/nginx',
+        'devops/tailscale-subnet-router',
         'devops/k8s',
         'devops/k8s-windows-share',
         'devops/grafana-elk-prometheus',
