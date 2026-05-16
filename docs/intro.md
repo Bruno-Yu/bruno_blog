@@ -1,6 +1,7 @@
 ---
 slug: /
 title: README
+sidebar_position: 1
 description: Bruno 的公開技術筆記
 tags: [overview]
 date: 2026-05-16
