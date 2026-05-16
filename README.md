@@ -1,6 +1,6 @@
 # Bruno's Notes
 
-個人公開技術筆記，以 Docusaurus 3 建置。
+個人公開技術筆記，以 Docusaurus 3 建置，套用 **Phosphor** 視覺語言。
 
 **Live site**: [blog.jackhellowin.win](https://blog.jackhellowin.win)
 
@@ -10,10 +10,52 @@
 
 | 用途 | 技術 |
 |---|---|
-| 框架 | [Docusaurus 3](https://docusaurus.io/) |
-| 搜尋 | `@easyops-cn/docusaurus-search-local`（本地索引，build 後生效）|
-| 部署 | GitHub Pages |
-| 筆記來源 | Obsidian vault（私有） |
+| 框架 | [Docusaurus 3.10.1](https://docusaurus.io/) |
+| 主題 | Phosphor — 自訂設計系統（暖米色 light / 深夜黑 dark） |
+| 字型 | Manrope（body，自托管 woff2）、IBM Plex Mono（code/meta，自托管 woff2） |
+| 搜尋 | [Algolia DocSearch](https://docsearch.algolia.com/)（crawler 索引）|
+| 部署 | GitHub Pages（GitHub Actions 自動部署） |
+| 筆記來源 | Obsidian vault（私有）|
+
+---
+
+## Phosphor 設計系統
+
+### 色彩 Token
+
+| Token | Light | Dark |
+|---|---|---|
+| bg | `#f3efe8` | `#0b0e12` |
+| surface | `#e9e2d8` | `#10141a` |
+| sidebar | `#ddd6ca` | `#0d1117` |
+| accent | `#076e65` | `#2dd4bf` |
+| text | `#111418` | `#ddd6cc` |
+| muted | `#4e5664` | `#8a9099` |
+| border | `rgba(17,20,24,0.13)` | `rgba(221,214,204,0.07)` |
+
+### 已實作功能
+
+- **Navbar** — 頂部 2.5px accent 線、backdrop-filter blur
+- **Sidebar** — 分類標籤 monospace + 大寫 + 圓點指示器、file hover 左側 accent 邊線 (0.12s)、active 狀態、folder 箭頭旋轉 (0.20s)、巢狀連接線
+- **TOC** — scroll-driven 閱讀進度條（swizzle wrap）、active 項目 accent 色
+- **Code blocks** — macOS 紅黃綠三點 header、IBM Plex Mono 字型
+- **Algolia modal** — `--docsearch-*` 變數全面 Phosphor 化
+- **EmptyState 元件** — 空分類頁可用（accent 圖示 + CTA + 最近更新列表）
+- **Accessibility** — `prefers-reduced-motion` 停用所有 transition/animation
+
+### 關鍵檔案
+
+```
+src/
+  css/custom.css              ← 所有 CSS（token、navbar、sidebar、TOC、code、algolia）
+  theme/TOC/index.tsx         ← swizzle wrap：scroll 進度條
+  components/EmptyState/
+    index.tsx                 ← 可複用空分類頁元件
+static/fonts/
+  Manrope-*.woff2             ← 400 / 500 / 600 / 700（已有）
+  IBMPlexMono-Regular.woff2   ← 新增
+  IBMPlexMono-Medium.woff2    ← 新增
+```
 
 ---
 
@@ -21,12 +63,10 @@
 
 ```bash
 npm install
-npm run start       # http://localhost:3000（dev 模式，搜尋不可用）
-npm run build       # 正式 build（搜尋索引會產生）
-npm run serve       # 預覽 build 結果（含搜尋功能）
+npm run start       # http://localhost:3000（dev 模式，Algolia 搜尋需有效 API key）
+npm run build       # 正式 build
+npm run serve       # 預覽 build 結果
 ```
-
-> **搜尋注意**：dev server 下搜尋會顯示 "search index is only available when you run docusaurus build"，這是正常現象，`npm run build` 後才會有索引。
 
 ---
 
@@ -132,6 +172,7 @@ Push 後 GitHub Actions 會重新建置並部署 GitHub Pages。
 1. 在 `docs/` 下建立對應子目錄（如 `docs/ai/`）
 2. 在 `sidebars.ts` 加入新的 `category` 區塊
 3. 在 `docs/ai/` 下建立第一篇文章
+4. 若分類為空，可在 `docs/ai/index.mdx` 引入 `EmptyState` 元件
 
 ---
 
