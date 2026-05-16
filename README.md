@@ -2,7 +2,7 @@
 
 個人公開技術筆記，以 Docusaurus 3 建置。
 
-**Live site**: GitHub Pages（待部署）
+**Live site**: [blog.jackhellowin.win](https://blog.jackhellowin.win)
 
 ---
 
