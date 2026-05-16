@@ -138,6 +138,8 @@ publish: true
 
 > 路徑格式：`<分類>/<slug>`，對應 `docs/<分類>/<slug>.md`
 
+> **注意**：`sidebars.ts` 使用**手動列舉**，非自動掃描目錄。只新增 `.md` 檔但沒更新 `sidebars.ts`，文章不會出現在 sidebar，Build 也不會報錯。
+
 ---
 
 ### 4. 本地確認
