@@ -1,0 +1,35 @@
+---
+slug: /
+title: README
+description: Bruno 的公開技術筆記
+tags: [overview]
+date: 2026-05-16
+type: doc
+publish: true
+---
+
+# Bruno 的技術筆記
+
+這裡收錄的是我希望未來自己也能快速回查的內容。  
+我會把它當成公開版知識庫來維護：比部落格更容易檢索，也比零散筆記更適合持續修訂。
+
+## 目前主題
+
+- **Frontend**：JavaScript、TypeScript、Vue / Nuxt、CSS、前端函式庫
+- **Tooling**：套件管理、Corepack、HackMD
+- **Testing & Performance**：Jest、JMeter
+- **Web Platform**：localStorage 等瀏覽器能力
+- **Backend & API**：JSON Server
+- **DevOps**：Linux、SSH
+- **Analytics**：Matomo
+
+## 發布原則
+
+- 只整理我願意公開、也願意持續維護的技術內容
+- 草稿、公司資訊、雜亂摘錄不直接公開
+- 未來若導入 Obsidian 同步，也只會同步明確標記為 `publish: true` 的筆記
+
+## 閱讀方式
+
+左側可以依主題瀏覽，頁面右側會列出本頁導覽。  
+如果你已經知道要找什麼，直接用右上角搜尋會最快。

@@ -1,5 +1,8 @@
 # build output
+build/
+.docusaurus/
 dist/
+
 # generated types
 .astro/
 
@@ -24,3 +27,6 @@ pnpm-debug.log*
 .DS_Store
 
 node_modules
+
+# Claude Code internal files
+.claude/
