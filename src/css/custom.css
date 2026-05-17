@@ -184,7 +184,21 @@
 .navbar {
   border-top: 2.5px solid var(--ifm-color-primary);
   border-bottom: 1px solid var(--ph-border);
+  /* NOTE: backdrop-filter moved to ::before pseudo-element.
+     Chrome 112+ makes any element with backdrop-filter a containing
+     block for position:fixed descendants. Putting it directly on
+     .navbar caused .navbar-sidebar (position:fixed; top:0; bottom:0)
+     to size itself relative to the 60px navbar instead of the full
+     viewport — the sidebar appeared invisible on mobile. */
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   backdrop-filter: blur(14px);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .navbar__title {
