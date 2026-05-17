@@ -2,6 +2,7 @@
 build/
 .docusaurus/
 dist/
+coverage/
 
 # generated types
 .astro/

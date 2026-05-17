@@ -66,6 +66,8 @@ npm install
 npm run start       # http://localhost:3000（dev 模式，Algolia 搜尋需有效 API key）
 npm run build       # 正式 build
 npm run serve       # 預覽 build 結果
+pnpm test           # 執行單元測試（Vitest，EmptyState + TOCWrapper）
+pnpm test:coverage  # 產生 coverage 報告（輸出至 coverage/）
 ```
 
 ---
