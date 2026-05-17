@@ -227,6 +227,14 @@ button.DocSearch.DocSearch-Button:hover {
   border-right: 1px solid var(--ph-border) !important;
 }
 
+/* Mobile navbar-sidebar overlay — must be fully opaque.
+   Docusaurus inherits --ifm-navbar-background-color which we set to
+   rgba(..., 0.93), making the mobile sidebar see-through. Override to
+   the same solid sidebar colour used on desktop. */
+.navbar-sidebar {
+  background-color: var(--ph-sidebar-bg) !important;
+}
+
 .menu {
   font-size: 0.875rem;
   background-color: var(--ph-sidebar-bg);
