@@ -5,6 +5,15 @@ const config: Config = {
   title: "Bruno's Notes",
   tagline: 'Bruno 的公開技術筆記',
   favicon: 'img/favicon.svg',
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'algolia-site-verification',
+        content: '5DD96868A214E8A0',
+      },
+    },
+  ],
   url: 'https://blog.jackhellowin.win',
   baseUrl: '/',
   organizationName: 'Bruno-Yu',
